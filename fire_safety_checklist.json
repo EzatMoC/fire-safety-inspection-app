@@ -1,0 +1,42 @@
+{
+    "1. Fire Alarm System": [
+        "Fire Alarm Panel: Verified functionality and accessibility",
+        "Smoke Detectors: Installed as per approved drawings",
+        "Manual Call Points (MCP): Installed and functional",
+        "Sounders: Audible and located appropriately",
+        "Visual Alarm Devices: Operational where required"
+    ],
+    "2. Emergency Lighting System": [
+        "Emergency Lights: Installed and operational",
+        "Battery Backup: Tested and confirmed working",
+        "Exit Signage: Illuminated and placed as per code"
+    ],
+    "3. Fire Fighting System": [
+        "Fire Hose Reels (FHR): Installed and tested",
+        "Fire Extinguishers: Correct type, location and tagging",
+        "Landing Valves: Installed per drawing and pressure tested",
+        "Risers and Pipework: Installed and painted red"
+    ],
+    "4. Sprinkler System": [
+        "Sprinkler Heads: Proper spacing and no obstructions",
+        "Piping and Supports: Secure and per approved design",
+        "Sprinkler Pump: Installed and tested",
+        "Flow Switch and Alarm Valve: Functional and connected"
+    ],
+    "5. Fire Pump Room": [
+        "Pump Layout: Matches approved drawings",
+        "Jockey/Main Pump: Labeled and operational",
+        "Fuel Tank (Diesel pump): Installed and safe",
+        "Drainage and Ventilation: Verified and clear"
+    ],
+    "6. Staircase Pressurization": [
+        "Fans: Installed and functional",
+        "Pressure Testing: Conducted and within limits",
+        "Control Panel: Accessible and operational"
+    ],
+    "7. Final Safety Checks": [
+        "Final Cleanliness: No debris or flammable waste",
+        "Access and Egress: Clear of obstructions",
+        "All Tags and Labels: As per UAE Fire Code"
+    ]
+}
