@@ -54,58 +54,5 @@ inspector_name = st.text_input("Inspector Name | اسم المفتش")
 signature = st.text_input("Digital Signature | التوقيع")
 submit_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-# Export PDF
-if st.button("📤 Export PDF | تصدير تقرير PDF"):
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font("Arial", size=12)
-
-    if company_logo:
-        logo_path = os.path.join(tempfile.gettempdir(), "logo.jpg")
-        with open(logo_path, "wb") as f:
-            f.write(company_logo.read())
-        pdf.image(logo_path, x=10, y=8, w=33)
-
-    pdf.cell(200, 10, txt="Fire & Life Safety Inspection Report", ln=True, align="C")
-    pdf.cell(200, 10, txt=company_name, ln=True, align="C")
-    pdf.ln(10)
-    pdf.cell(200, 10, txt=f"Project: {building_name} | Location: {location}", ln=True)
-    pdf.cell(200, 10, txt=f"Inspection No.: {inspection_no} | Date: {inspection_date}", ln=True)
-    pdf.cell(200, 10, txt=f"Consultant: {consultant} | Contractor: {contractor} | Engineer: {site_engineer}", ln=True)
-
-    if hero_photo:
-        hero_path = os.path.join(tempfile.gettempdir(), "hero.jpg")
-        with open(hero_path, "wb") as f:
-            f.write(hero_photo.read())
-        pdf.image(hero_path, x=10, y=pdf.get_y()+5, w=180)
-        pdf.ln(65)
-
-    for section, questions in checklist.items():
-        pdf.set_font("Arial", "B", 12)
-        pdf.cell(0, 10, txt=section, ln=True)
-        pdf.set_font("Arial", size=11)
-        for q in questions:
-            pdf.multi_cell(0, 10, txt=f"• {q} - Answer: {answers[q]}")
-            if photos[q]:
-                img_path = os.path.join(tempfile.gettempdir(), f"img_{hash(q)}.jpg")
-                with open(img_path, "wb") as f:
-                    f.write(photos[q].read())
-                try:
-                    pdf.image(img_path, x=10, y=pdf.get_y()+5, w=100)
-                    pdf.ln(55)
-                except:
-                    pdf.ln(5)
-            else:
-                pdf.ln(3)
-
-    pdf.multi_cell(0, 10, txt=f"Notes: {notes}")
-    pdf.cell(0, 10, txt=f"Inspector: {inspector_name} | Signature: {signature}", ln=True)
-    pdf.cell(0, 10, txt=f"Time Submitted: {submit_time}", ln=True)
-    pdf.ln(5)
-    pdf.multi_cell(0, 10, txt=company_footer)
-
-    output_path = os.path.join(tempfile.gettempdir(), "final_fire_safety_report.pdf")
-    pdf.output(output_path)
-
     with open(output_path, "rb") as f:
         st.download_button("⬇️ Download Final Report PDF", data=f, file_name="fire_safety_report.pdf", mime="application/pdf")
